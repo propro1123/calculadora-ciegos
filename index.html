@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PCPC: Calculadora para Ciegos</title>
+  <link rel="stylesheet" href="Tareaa.css" />
+</head>
+<body>
+  <header>
+    <h1>PCPC: Calculadora para Ciegos</h1>
+    <p>Un proyecto inclusivo desarrollado con Arduino</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Presentación del Proyecto</h2>
+      <p>
+        El Proyecto PCPC (Proyecto Calculadora Para Ciegos) nació como respuesta a una necesidad concreta: permitir que personas con discapacidad visual puedan realizar cálculos matemáticos de manera autónoma, sin depender de costosos dispositivos del mercado.
+      </p>
+      <p>
+        El dispositivo fue diseñado con un enfoque inclusivo, accesible y de bajo costo, combinando botones con etiquetas en braille, una pantalla LCD I2C y un módulo de audio que reproduce la voz mediante archivos almacenados en una tarjeta microSD de 32 GB.
+      </p>
+      <img src="img/presentacion.jpg" alt="Imagen del prototipo PCPC">
+    </section>
+
+    <section>
+      <h2>Características</h2>
+      <ul>
+        <li>Interfaz táctil con teclado 4x4 adaptado con braille</li>
+        <li>Reproducción de voz clara de cada número o operación</li>
+        <li>Pantalla LCD para usuarios con baja visión o acompañantes</li>
+        <li>Compatible con auriculares o parlantes externos</li>
+        <li>Total portabilidad gracias a su bajo consumo y tamaño reducido</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Funcionamiento del Sistema</h2>
+      <p>
+        Al presionar una tecla del teclado, el Arduino identifica la entrada y reproduce el audio correspondiente a través del DFPlayer Mini. Simultáneamente, la pantalla LCD muestra la tecla presionada. Una vez completada la operación, el resultado es mostrado y leído número por número.
+      </p>
+      <p>
+        Este proceso está completamente sincronizado para brindar retroalimentación táctil, visual y auditiva. La programación fue realizada en Arduino IDE, asegurando flexibilidad para futuras mejoras.
+      </p>
+    </section>
+
+    <section>
+      <h2>Tecnologías Asistivas</h2>
+      <p>
+        El PCPC integra tres vías de comunicación: tacto, vista y oído. Esto lo convierte en una herramienta especialmente versátil en el campo de las tecnologías asistivas. A diferencia de las calculadoras parlantes tradicionales, permite mantener la privacidad y adaptarse a diversos entornos educativos o laborales.
+      </p>
+      <p>
+        Además, puede ser modificado para incorporar más funciones, como memoria de operaciones o conectividad inalámbrica.
+      </p>
+    </section>
+
+    <section>
+      <h2>Componentes Utilizados</h2>
+
+      <div class="component">
+        <h3>Arduino Nano</h3>
+        <p>Microcontrolador ATmega328P. Controla toda la lógica del sistema: teclado, pantalla y audio. Su tamaño y eficiencia lo hacen ideal para dispositivos portátiles.</p>
+        <img src="tareaaaaaaa.jpg" alt="Arduino Nano">
+      </div>
+
+      <div class="component">
+        <h3>Teclado Matricial 4x4</h3>
+        <p>16 teclas adaptadas con etiquetas en braille. Permite ingresar los dígitos (0-9) y operaciones básicas (+, –, ×, ÷, =, C).</p>
+        <img src="images.jpg" alt="Teclado con braille">
+      </div>
+
+      <div class="component">
+        <h3>Pantalla LCD I2C</h3>
+        <p>Modelo 16x2 con interfaz I2C. Muestra los números ingresados y resultados. Compatible con usuarios con baja visión.</p>
+        <img src="tareaaaaaaaaaa.jpg" alt="Pantalla LCD I2C">
+      </div>
+
+      <div class="component">
+        <h3>DFPlayer Mini + microSD 32GB</h3>
+        <p>Reproduce archivos MP3 pregrabados con la voz de cada número y operación. Almacena cientos de audios personalizados.</p>
+        <img src="Tarea1.jpg" alt="Módulo DFPlayer">
+      </div>
+
+      <div class="component">
+        <h3>Parlante o Auricular</h3>
+        <p>Salida de audio configurable según el contexto (público o privado).</p>
+        <img src="img/parlante.jpg" alt="Parlante">
+      </div>
+    </section>
+
+    <section>
+      <h2>Metodología de Desarrollo</h2>
+      <ul>
+        <li>Encuestas a personas ciegas y familias</li>
+        <li>Investigación sobre accesibilidad y dispositivos existentes</li>
+        <li>Prototipado en placa de pruebas</li>
+        <li>Validación de componentes y código</li>
+        <li>Ajustes de audio, tiempo de respuesta y accesibilidad</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Impacto e Inclusión</h2>
+      <p>
+        El PCPC no es solo un proyecto técnico, es una apuesta por la inclusión real. Permite a estudiantes, trabajadores o cualquier persona con discapacidad visual acceder a una herramienta básica, cotidiana, sin depender de ayuda externa. La posibilidad de combinar braille, voz y pantalla lo vuelve adaptable, humano y efectivo.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Proyecto PCPC – Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>
