@@ -5,111 +5,309 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PCPC: Calculadora para Ciegos</title>
   <link rel="stylesheet" href="Tareaa.css" />
+  <style>
+    /* Ocultar todas las secciones por defecto */
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Mostrar la sección activa */
+    section.active {
+      display: block;
+    }
+
+    /* Animación suave */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Menú de navegación */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    pre {
+      background-color: #e9f3fb;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: monospace;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f9ff;
+      color: #333;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>PCPC: Calculadora para Ciegos</h1>
     <p>Un proyecto inclusivo desarrollado con Arduino</p>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+        <li><a href="#" onclick="mostrarSeccion('problema')">Planteamiento</a></li>
+        <li><a href="#" onclick="mostrarSeccion('materiales')">Materiales</a></li>
+        <li><a href="#" onclick="mostrarSeccion('descripcion')">Descripción</a></li>
+        <li><a href="#" onclick="mostrarSeccion('codigo')">Código</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section>
-      <h2>Presentación del Proyecto</h2>
+    <section id="inicio" class="active">
+      <h2>Bienvenido</h2>
       <p>
-        El Proyecto PCPC (Proyecto Calculadora Para Ciegos) nació como respuesta a una necesidad concreta: permitir que personas con discapacidad visual puedan realizar cálculos matemáticos de manera autónoma, sin depender de costosos dispositivos del mercado.
-      </p>
-      <p>
-        El dispositivo fue diseñado con un enfoque inclusivo, accesible y de bajo costo, combinando botones con etiquetas en braille, una pantalla LCD I2C y un módulo de audio que reproduce la voz mediante archivos almacenados en una tarjeta microSD de 32 GB.
-      </p>
-      <img src="img/presentacion.jpg" alt="Imagen del prototipo PCPC">
+        Este es el sitio del Proyecto PCPC, una calculadora diseñada para personas con discapacidad visual, 
+        combinando tecnología accesible, bajo costo y facilidad de uso.
+      </p> 
     </section>
 
-    <section>
-      <h2>Características</h2>
+    <section id="problema">
+      <h2>Planteamiento del Problema</h2>
+      <p>
+        Una calculadora para ciegos que busca facilitar el uso de operaciones matemáticas 
+        de manera autónoma, sin depender de terceros ni de costosos equipos especializados.
+      </p> 
+      <p>
+        Planteamiento del Problema
+El acceso a dispositivos cotidianos como una calculadora representa un desafío significativo para personas con discapacidad visual, ya que la mayoría de los modelos comerciales dependen del reconocimiento visual del teclado y la pantalla. Esta situación limita la autonomía al realizar cálculos sencillos o complejos y demanda soluciones asequibles y accesibles.
+
+1. Limitaciones de los dispositivos actuales
+Algunos dispositivos asistivos, como los calculadores parlantes (talking calculators), existen en el mercado; reproducen cada tecla al presionarla y anuncian el resultado en voz, pero suelen ser costosos o con funciones básicas 
+brighthubeducation.com
+.
+
+Las aplicaciones tradicionales en teléfonos o en la web frecuentemente no aceptan entrada desde dispositivos braille o son incompatibles con un uso no visual pleno 
+Reddit
++1
+.
+
+2. Avances en tecnologías multimodales
+En otras áreas de las tecnologías asistivas, se reconoce que la combinación de audio, tacto y retroalimentación háptica (vibraciones, texturas) mejora sustancialmente la experiencia del usuario 
+PMC
++1
+MDPI
+.
+
+Por ejemplo, aplicaciones con detección de objetos para usuarios ciegos incorporan retroalimentación háptica y auditiva para transmitir información no visual 
+MDPI
+.
+
+3. Necesidad de soluciones inclusivas y económicas
+Proyectos como "BrailleTap", que convierte gestos táctiles en cálculos usando braille y audio, han mostrado mejor velocidad y accesibilidad en pilotos iniciales frente a calculadoras táctiles tradicionales 
+ResearchGate
+.
+
+En el campo educativo, se han identificado técnicas multisensoriales (como TouchMath o aplicaciones especializadas) que favorecen el aprendizaje matemático mediante tacto y voz 
+Europe PMC
+.
+
+4. Propuesta: una solución accesible, inclusiva y autosuficiente
+En este contexto, el Proyecto PCPC propone desarrollar una calculadora física que permita:
+
+Entrada táctil mediante un teclado adaptado con etiquetas en braille.
+
+Visualización accesible, con una pantalla LCD I2C que provee feedback visual para personas con baja visión o sus acompañantes.
+
+Retroalimentación auditiva, mediante reproducción de voz clara de cada número y operación, sin depender de internet ni dispositivos externos.
+
+Portabilidad y costo contenido, usando componentes económicos y de fácil acceso como Arduino Nano, DFPlayer Mini, parlantes o auriculares estándar, y microSD de 32 GB.
+
+Este enfoque busca no solo ofrecer una herramienta funcional, sino también promover inclusión real, permitiendo que estudiantes, trabajadores o cualquier persona con discapacidad visual realice cálculos de manera independiente, eficiente y accesible en diversos contextos.
+      </p>
+    </section>
+
+    <section id="materiales">
+      <h2>Materiales</h2>
       <ul>
-        <li>Interfaz táctil con teclado 4x4 adaptado con braille</li>
-        <li>Reproducción de voz clara de cada número o operación</li>
-        <li>Pantalla LCD para usuarios con baja visión o acompañantes</li>
-        <li>Compatible con auriculares o parlantes externos</li>
-        <li>Total portabilidad gracias a su bajo consumo y tamaño reducido</li>
+        <center><p>Arduino Nano</p></center>    
+        <center><p>Teclado Matricial 4x4 adaptado con braille</p></center> 
+        <p>Utilizamos un TECLADO MATRICAL 4x4 para poder códigificar la parte interna de la calculadora. </p> 
+        <p>La descripción del mismo: </p>
+        <p>El teclado matricial 4x4 está formado por una matriz de pulsadores dispuestos en filas (L1, L2, L3, L4) y columnas (C1, C2, C3, C4), con la intención de reducir el número de pines necesarios para su conexión.</p>
+        <center><p>Pantalla LCD 16x2 con módulo I2C</p></center> 
+        <p>La pantalla LCD sera la encargada de mostrar los números a medida que se vayan tocando en el teclado matrical 4x4. </p> 
+        <p>Descripción del mismo: </p> 
+        <P>Pantalla LCD Una pantalla de cristal líquido, o LCD (sigla del inglés liquid-crystal display), es una pantalla plana y delgada formada por un número de píxeles en color o monocromos colocados delante de una fuente de luz o reflectora.</P> 
+        <p>El módulo I2C irá conectado a la pantalla LCD. </p> 
+        <p>Descripción del mismo: </p> 
+        <p>La I2C interfaz LCD 1602 PCF8574 es un módulo que permite la comunicación simplificada entre un microcontrolador y una pantalla LCD1602 o LCD2004. A través del protocolo I2C (Inter-Integrated Circuit).</p>
+        <center><p>DFPlayer Mini</p></center>
+        <center><P>Tarjeta microSD de 32GB</P></center>
+        <p>Descripción del mismo: </p> 
+        <p>Las tarjetas microSD suelen utilizarse para ampliar la capacidad de almacenamiento de teléfonos inteligentes, drones, equipos de juegos y cámaras. Los dispositivos de hardware también son retrocompatibles con las tarjetas microSD, al igual que con las tarjetas SD.</p>
+        <center><p>Parlante o auriculares</p></center>
+        <center><p>Cables y protoboard</p></center>
+        <center><p>Fuente de alimentación</p></center> 
+        <p>Como fuente de alimentación utilizamos una batería de litio, especificamente la siguiente: "Batería Lsm 18650 2000mah Recargable 3.7v Litio". </p> 
+        <p>Descripción de la misma: </p> 
+        <p>Batería Yeti Tank 1400/3000 5Kw V2
+
+          Es la batería más potente por su tamaño, la llamada 18650 de Goal Zero es fabricada de litio y tiene en ambos lados polos negativos y positivos.</p>
       </ul>
     </section>
 
-    <section>
-      <h2>Funcionamiento del Sistema</h2>
+    <section id="descripcion">
+      <h2>Descripción del Proyecto</h2>
       <p>
-        Al presionar una tecla del teclado, el Arduino identifica la entrada y reproduce el audio correspondiente a través del DFPlayer Mini. Simultáneamente, la pantalla LCD muestra la tecla presionada. Una vez completada la operación, el resultado es mostrado y leído número por número.
+        El Proyecto PCPC nació como respuesta a una necesidad concreta: permitir que personas con discapacidad visual 
+        puedan realizar cálculos matemáticos de manera autónoma, sin depender de costosos dispositivos del mercado.
       </p>
       <p>
-        Este proceso está completamente sincronizado para brindar retroalimentación táctil, visual y auditiva. La programación fue realizada en Arduino IDE, asegurando flexibilidad para futuras mejoras.
-      </p>
-    </section>
-
-    <section>
-      <h2>Tecnologías Asistivas</h2>
-      <p>
-        El PCPC integra tres vías de comunicación: tacto, vista y oído. Esto lo convierte en una herramienta especialmente versátil en el campo de las tecnologías asistivas. A diferencia de las calculadoras parlantes tradicionales, permite mantener la privacidad y adaptarse a diversos entornos educativos o laborales.
-      </p>
-      <p>
-        Además, puede ser modificado para incorporar más funciones, como memoria de operaciones o conectividad inalámbrica.
+        El dispositivo combina botones con etiquetas en braille, una pantalla LCD I2C 
+        y un módulo de audio que reproduce la voz mediante archivos almacenados en una tarjeta microSD.
       </p>
     </section>
 
-    <section>
-      <h2>Componentes Utilizados</h2>
-
-      <div class="component">
-        <h3>Arduino Nano</h3>
-        <p>Microcontrolador ATmega328P. Controla toda la lógica del sistema: teclado, pantalla y audio. Su tamaño y eficiencia lo hacen ideal para dispositivos portátiles.</p>
-        <img src="tareaaaaaaa.jpg" alt="Arduino Nano">
-      </div>
-
-      <div class="component">
-        <h3>Teclado Matricial 4x4</h3>
-        <p>16 teclas adaptadas con etiquetas en braille. Permite ingresar los dígitos (0-9) y operaciones básicas (+, –, ×, ÷, =, C).</p>
-        <img src="images.jpg" alt="Teclado con braille">
-      </div>
-
-      <div class="component">
-        <h3>Pantalla LCD I2C</h3>
-        <p>Modelo 16x2 con interfaz I2C. Muestra los números ingresados y resultados. Compatible con usuarios con baja visión.</p>
-        <img src="tareaaaaaaaaaa.jpg" alt="Pantalla LCD I2C">
-      </div>
-
-      <div class="component">
-        <h3>DFPlayer Mini + microSD 32GB</h3>
-        <p>Reproduce archivos MP3 pregrabados con la voz de cada número y operación. Almacena cientos de audios personalizados.</p>
-        <img src="Tarea1.jpg" alt="Módulo DFPlayer">
-      </div>
-
-      <div class="component">
-        <h3>Parlante o Auricular</h3>
-        <p>Salida de audio configurable según el contexto (público o privado).</p>
-        <img src="img/parlante.jpg" alt="Parlante">
-      </div>
-    </section>
-
-    <section>
-      <h2>Metodología de Desarrollo</h2>
-      <ul>
-        <li>Encuestas a personas ciegas y familias</li>
-        <li>Investigación sobre accesibilidad y dispositivos existentes</li>
-        <li>Prototipado en placa de pruebas</li>
-        <li>Validación de componentes y código</li>
-        <li>Ajustes de audio, tiempo de respuesta y accesibilidad</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Impacto e Inclusión</h2>
-      <p>
-        El PCPC no es solo un proyecto técnico, es una apuesta por la inclusión real. Permite a estudiantes, trabajadores o cualquier persona con discapacidad visual acceder a una herramienta básica, cotidiana, sin depender de ayuda externa. La posibilidad de combinar braille, voz y pantalla lo vuelve adaptable, humano y efectivo.
-      </p>
+    <section id="codigo">
+      <h2>Código De Arduino</h2> 
+      <pre>
+        #include <Wire.h>
+          #include <LiquidCrystal_I2C.h>
+          #include <SoftwareSerial.h>
+          #include <DFRobotDFPlayerMini.h>
+          
+          // LCD I2C (dirección 0x27, 16 columnas, 2 filas)
+          LiquidCrystal_I2C lcd(0x27, 16, 2);
+          
+          // DFPlayer - conexión por SoftwareSerial
+          SoftwareSerial mySerial(10, 11); // RX, TX del Arduino hacia DFPlayer
+          DFRobotDFPlayerMini player;
+          
+          // Teclado 4x4 sin librería
+          const byte filas[4] = {9, 8, 7, 6};    
+          const byte columnas[4] = {5, 4, 3, 2}; 
+          
+          char teclas[4][4] = {
+            {'1','2','3','+'},
+            {'4','5','6','-'},
+            {'7','8','9','*'},
+            {'C','0','=','/'}
+          };
+          
+          void setup() {
+            Serial.begin(9600);
+          
+            // LCD
+            lcd.begin(16, 2);
+            lcd.backlight();
+            lcd.setCursor(0, 0);
+            lcd.print("Calculadora");
+          
+            // DFPlayer
+            mySerial.begin(9600);
+            if (!player.begin(mySerial)) {
+              lcd.clear();
+              lcd.print("Error DFPlayer");
+              while (true);
+            }
+            player.volume(25); // Volumen de 0 a 30
+          
+            // Pines del teclado
+            for (int i = 0; i < 4; i++) {
+              pinMode(filas[i], OUTPUT);
+              digitalWrite(filas[i], HIGH);
+            }
+            for (int i = 0; i < 4; i++) {
+              pinMode(columnas[i], INPUT_PULLUP);
+            }
+          
+            delay(1000);
+            lcd.clear();
+          }
+          
+          void loop() {
+            for (int f = 0; f < 4; f++) {
+              digitalWrite(filas[f], LOW);
+              for (int c = 0; c < 4; c++) {
+                if (digitalRead(columnas[c]) == LOW) {
+                  char tecla = teclas[f][c];
+                  lcd.setCursor(0, 0);
+                  lcd.print("Tecla: ");
+                  lcd.print(tecla);
+                  reproducir(tecla);
+                  delay(300); // Antirrebote
+                  lcd.clear();
+                }
+              }
+              digitalWrite(filas[f], HIGH);
+            }
+          }
+          
+          void reproducir(char tecla) {
+            int num = 0;
+            switch(tecla) {
+              case '0': num = 1; break;
+              case '1': num = 2; break;
+              case '2': num = 3; break;
+              case '3': num = 4; break;
+              case '4': num = 5; break;
+              case '5': num = 6; break;
+              case '6': num = 7; break;
+              case '7': num = 8; break;
+            }
+            if (num > 0) {
+              player.play(num);  // Reproduce 0001.mp3 hasta 0016.mp3 según número
+            }
+          }
+      </pre>
+      <p>Para el código completo contacta con el siguiente contacto: 11 5410-7365. </p>
     </section>
   </main>
 
   <footer>
     <p>© 2025 Proyecto PCPC – Todos los derechos reservados</p>
   </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('main section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
